@@ -1,1 +1,1 @@
-ls -m -p -tr --ignore='.??*' 
+ls -m -p -t --ignore='.??*' 
