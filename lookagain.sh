@@ -1,2 +1,2 @@
 #!/bin/sh
-find . -name "*.sh" | sed 's/.sh//' | sed 's/\(.*\)\///'
+find . -name "*.sh" | sed 's/\(.*\)\///' | sed 's/.sh//'
