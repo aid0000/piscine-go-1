@@ -1,1 +1,2 @@
-"Joe Germuska"
+#!/bin/sh
+echo  'Joe Germuska'
