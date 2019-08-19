@@ -1,2 +1,2 @@
 #!/bin/sh
-cat Fitness_Galaxy AAA United_MileagePlus | grep "Joe Germuska"
+cat AAA Delta_SkyMiles  | grep "Joe Germuska"
