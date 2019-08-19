@@ -1,2 +1,2 @@
 #!/bin/sh
-Joe Germuska
+cat Fitness_Galaxy AAA United_MileagePlus | grep "Joe Germuska"
