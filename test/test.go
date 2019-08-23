@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
-	piscine ".."
+	
+	student ".."
 )
 
 func main() {
-	s := "Hello World!"
-	s = piscine.StrRev(s)
-	fmt.Println(s)
+	student.Raid1a(1,1)
 }
