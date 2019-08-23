@@ -1,7 +1,12 @@
 package main
 
-import piscine ".."
+import (
+	"fmt"
+	piscine ".."
+)
 
 func main() {
-	piscine.PrintComb2()
+	s := "Hello World!"
+	s = piscine.StrRev(s)
+	fmt.Println(s)
 }
