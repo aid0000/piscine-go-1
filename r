@@ -1,49 +1,14 @@
 package piscine
 
-import (
-	"fmt"
-)
+func IterativePower(nb,power int) int {
 
-func Raid1a(x, y int) {
-
-	a := "o"
-	b := "-"
-
-	for i := x; i <= x; i++ {
-		fmt.Print(a)
-		for f := +3; f <= x; f++ {
-			fmt.Print(b)
-
-		}
-	}
-	fmt.Print(a)
-	fmt.Print("\n")
-
-	c := "|"
-	d := " "
-
-	for g := y; g <= y; g++ {
-		fmt.Print(c)
-		for g := +4; g <= y; g++ {
-			fmt.Print("\n", c)
-
-			for h := +3; h <= x; h++ {
-				fmt.Print(d)
-
-			}
-		}
+	
+    if power== 0 { 
+        return 1 
+    }else if power % 2 == 0 {
+        return IterativePower(nb, power / 2) * IterativePower(nb, power / 2)
+    }else{
+        return nb * IterativePower(nb, power / 2) * IterativePower(nb, power / 2) 
+} 
 	}
 
-	fmt.Print("\n")
-
-	for i := x; i <= x; i++ {
-		fmt.Print(a)
-		for f := +3; f <= x; f++ {
-			fmt.Print(b)
-
-		}
-	}
-	fmt.Print(a)
-	fmt.Print("\n")
-
-}
