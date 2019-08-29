@@ -1,10 +1,11 @@
 package main
 
 import (
-	
+	"fmt"
 	piscine ".."
 )
 
 func main() {
-	piscine.Raid1a(5,1)
+	str := "Hello how are you?"
+	fmt.Println(piscine.SplitWhiteSpaces(str))
 }

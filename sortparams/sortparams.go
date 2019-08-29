@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	
-	for i:=lent(os.Args)'0'; i>=1; i--{
+	l:=lent(os.Args)
+	for i:=0; i<l; i++{
 		
 		piscine.Printrunes(os.Args[i], 0)
 	}
@@ -21,3 +21,15 @@ func lent(d []string) int{
 	 return inc
 }
 
+
+
+   for  i:=0;i<L;i++{
+
+      for j:=0;j< (L-1-i);j++{
+         if items[j] > items[j+1]{
+            items[j], items[j+1] = items[j+1], items[j]
+         }
+      }
+   }
+
+}
