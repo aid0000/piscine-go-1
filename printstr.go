@@ -1,8 +1,5 @@
 package piscine
-
-import 
-"fmt"
 func PrintStr(str string) {
-	fmt.Println(str)
+	Printrunes(str, 0)
 
 }
