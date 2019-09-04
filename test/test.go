@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	str := "Hello how are you?"
+	str := "Hello\thow\nare you?"
 	fmt.Println(piscine.SplitWhiteSpaces(str))
 }
