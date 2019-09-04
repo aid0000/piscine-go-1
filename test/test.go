@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	str := "Hello\thow\nare you?"
-	fmt.Println(piscine.SplitWhiteSpaces(str))
+	test := []string{"Hello", "how", "are", "you?"}
+	fmt.Println(piscine.ConcatParams(test))
 }

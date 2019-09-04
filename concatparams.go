@@ -10,7 +10,7 @@ func ConcatParams(args []string) string {
 
 			
 			result += v 
-			if i!=lent3(args)-1{
+			if i!=Lent3(args)-1{
 				
 				result += "\n"
 			}
@@ -20,7 +20,7 @@ func ConcatParams(args []string) string {
 	return result
 }
 
-func lent3(d []string) int{
+func Lent3(d []string) int{
 	inc:=0
 	for _, _= range d{
 		inc ++
