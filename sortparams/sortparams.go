@@ -1,24 +1,17 @@
 package main
 
-import (
-    piscine ".."
-	"os"
+//import (
+  //  piscine ".."
+	//"os"
 	
-)
+//)
 
-func main() {
+func main() {/*
 	l:=lent(os.Args)
 	for i:=0; i<l; i++{
 		
 		piscine.Printrunes(os.Args[i], 0)
 	}
-}
-func lent(d []string) int{
-	inc:=0
-	for _, _= range d{
-		inc ++
-	}
-	 return inc
 }
 
 
@@ -32,4 +25,11 @@ func lent(d []string) int{
       }
    }
 
+}
+func lent(d []string) int{
+	inc:=0
+	for _, _= range d{
+		inc ++
+	}
+	 return inc*/
 }

@@ -204,6 +204,82 @@ func main() {
 
 
 
+sort params
+
+
+
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	array := []string(os.Args[1:])
+
+	quicksort(array)
+	for i := 0; i < len(array); i++ {
+
+		fmt.Println(array[i])
+	}
+}
+
+//quicksort
+func quicksort(table []string) {
+	beg := 0
+	end := len(table) - 1
+
+	quickSrot(table, beg, end)
+}
+func quickSrot(table []string, beg int, end int) {
+
+	if beg < end {
+		lockPivo := move(table, beg, end)
+		quickSrot(table, beg, lockPivo-1)
+		quickSrot(table, lockPivo+1, end)
+
+	}
+}
+
+func move(table []string, beg int, end int) int {
+	pivo := table[end]
+	i := beg - 1
+
+	for j := beg; j < end; j++ {
+		if table[j] <= pivo {
+			i++
+			aux := table[j]
+			table[j] = table[i]
+			table[i] = aux
+		}
+	}
+
+	aux := table[end]
+	table[end] = table[i+1]
+	table[i+1] = aux
+
+	return i + 1
+}
+
+
+
+
+
+
+	if value < 2 {
+		return false
+	}
+	limit := int(math.Floor(math.Sqrt(float64(value))))
+	i := 2
+	for i <= limit {
+		if value%i == 0 {
+			return false
+		}
+		i++
+	}
+	return true
+}
 
 
 

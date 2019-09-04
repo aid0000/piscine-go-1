@@ -6,6 +6,12 @@ import (
 )
 
 func main() {
-	test := []string{"Hello", "how", "are", "you?"}
-	fmt.Println(piscine.ConcatParams(test))
+	tab1 := []string{"Hello", "5", "are", "you"}
+	tab2 := []string{"This", "is", "sss", "you"}
+
+	result1 := piscine.Any(piscine.IsNumeric, tab1)
+	result2 := piscine.Any(piscine.IsNumeric, tab2)
+
+	fmt.Println(result1)
+	fmt.Println(result2)
 }
