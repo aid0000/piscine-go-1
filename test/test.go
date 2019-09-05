@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
+
 	piscine ".."
 )
 
 func main() {
-	tab1 := []string{"Hello", "5", "are", "you"}
-	tab2 := []string{"This", "is", "sss", "you"}
+	link := &piscine.List{}
+	link2 := &piscine.List{}
 
-	result1 := piscine.Any(piscine.IsNumeric, tab1)
-	result2 := piscine.Any(piscine.IsNumeric, tab2)
+	piscine.ListPushBack(link, "three")
+	piscine.ListPushBack(link, 3)
+	piscine.ListPushBack(link, "1")
 
-	fmt.Println(result1)
-	fmt.Println(result2)
+	fmt.Println(piscine.ListLast(link))
+	fmt.Println(piscine.ListLast(link2))
 }

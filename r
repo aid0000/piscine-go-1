@@ -3,6 +3,150 @@ package main
 import (
 	"os"
 	"fmt"
+	"bufio"
+	"io"
+	"os/exec"
+)
+
+func main(){
+	info, err := os.Stdin.Stat()
+    	if err != nil {
+        	fmt.Println(err.Error())
+    	}
+	
+	if info.Mode()&os.ModeCharDevice != 0 || info.Size() <= 0 {
+		fmt.Println()
+		return
+	}
+	
+	reader := bufio.NewReader(os.Stdin)
+	var output []rune
+	
+	for {
+		input, _, err := reader.ReadRune()
+		if err != nil && err == io.EOF {
+			break
+		}
+		output = append(output, input)
+	}
+	
+	row, col:= getDimension(string(output))
+	fmt.Println(IsRaid1a(row, col))
+}
+
+func IsRaid1a (row, col int) string {
+	cmd, _ := exec.Command("raid1a", string(row), string(col)).Output()
+	return string(cmd)
+}
+
+
+func getDimension(s string) (int, int) {
+	col, row:= 0, 0
+	for _, res := range s {
+		if row == 0 && res != '\n' {
+			col++
+		}
+		if res == '\n' {
+			row++
+		}
+	}
+	return row, col
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package main
+
+import (
+	"os"
+	"fmt"
 	// "io"
 	"log"
 	"strings"
@@ -113,19 +257,24 @@ func main(){
 
 
 
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
 
+//gives the last element of the list
+func ListLast(l *List) interface{} {
+	if l.Head == nil {
+		return nil
+	}
+	for l.Head != nil {
+		if l.Head.Next == nil {
+			return l.Head.Data
+		}
+		l.Head = l.Head.Next
+	}
+	return l.Head.Data
+}
 
-
-
-
-
-
-
-
-
-
-
+vvvvvvvvvvvvvvvvvvvvvvvvvv
 package main
 
 import (
@@ -283,4 +432,42 @@ func move(table []string, beg int, end int) int {
 
 
 
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+package piscine
 
+func IsSorted(f func(int, int) int, arr []int) bool {
+
+	cesce := true
+	decresce := true
+
+	for i := 1; i < Lent4(arr); i++ {
+		if !(f(arr[i-1], arr[i]) >= 0) {
+			cesce = false
+		}
+	}
+
+	for i := 1; i < Lent4(arr); i++ {
+		if !(f(arr[i-1], arr[i]) <= 0) {
+			decresce = false
+		}
+	}
+
+	return cesce || decresce
+
+}
+func F(a,b int) int{
+	if a>b{
+		return 1
+	}else if a==b{
+		return 0
+	}else {
+		return -1
+	}
+}
+func Lent4(d []int) int{
+	inc:=0
+	for _, _= range d{
+		inc ++
+	}
+	 return inc
+}
