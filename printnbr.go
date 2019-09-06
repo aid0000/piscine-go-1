@@ -6,6 +6,7 @@ import (
 )
 
 func PrintNbr(n int) {
+
 	t:=1
 		if n<0{
 			t=-1
@@ -18,7 +19,8 @@ func PrintNbr(n int) {
 			}
 			k:=((n%10*t))+'0'
 			z01.PrintRune(rune(k))
-		}else{
-			z01.PrintRune('0')
-		}
+			}else{
+				z01.PrintRune('0')
+			}
+		
 }
