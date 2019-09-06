@@ -1,7 +1,7 @@
 package piscine
 type Pilot struct{
 	Name string
-	Life float64
+	Life float32
 	Age int
 	Aircraft int
 }
