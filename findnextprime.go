@@ -19,3 +19,24 @@ func isPrime2(value int) bool {
     }
     return true
 }
+
+
+
+func IsPrime2(value int) bool {
+	if value < 2 {
+		return false
+	}
+	b:=string(value)
+	a:=[]rune(b)
+	for p,_:=range a{
+
+		i := 2
+		for i <= p {
+			if value%i == 0 {
+				return false
+			}
+			i++
+		}
+	}
+	return true
+}
