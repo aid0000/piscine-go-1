@@ -1,11 +1,7 @@
 package piscine
 
-
 func FirstRune(s string) rune {
+	arrayStr := []rune(s)
 
-			
-			return (rune(s[0]))
-
-
-
+	return arrayStr[0]
 }
