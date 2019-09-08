@@ -15,7 +15,7 @@ func main(){
 
 		data, err := ioutil.ReadFile("quest8.txt")
     if err != nil {
-		fmt.Printf("the mistake is: %v\n", err.Error())
+		fmt.Printf(err.Error())
         return
     }
     fmt.Println(string(data))
