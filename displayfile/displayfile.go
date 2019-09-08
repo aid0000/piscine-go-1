@@ -13,7 +13,7 @@ func main(){
 		fmt.Println("Too many arguments")
 	}else if os.Args[1] == "quest8.txt" {
 
-		data, err := ioutil.ReadFile("quest8.txt\n")
+		data, err := ioutil.ReadFile("quest8.txt" \n)
     if err != nil {
 		fmt.Printf(err.Error())
         return
