@@ -1,4 +1,4 @@
-Package piscine
+package piscine
 
 func ListReverse(l *List) {
 	current := l.Head
