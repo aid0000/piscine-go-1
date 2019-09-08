@@ -15,7 +15,7 @@ func main(){
 
 		data, err := ioutil.ReadFile("quest8.txt")
     if err != nil {
-		fmt.Printf(err.Error())
+		fmt.Printf(err.Error(),\n)
         return
     }
     fmt.Println(string(data))
