@@ -1,18 +1,34 @@
 package piscine
+
 type NodeI struct {
 	Data int
 	Next *NodeI
 }
 
 func ListSort(l *NodeI) *NodeI {
-/*
-p:=0
-current:=l.Head
-index:=nil
- if Head==nil{
-	 return
- }else if {
-	 for 
- }*/
-return nil
+
+	Head := l
+	if Head == nil {
+		return nil
+	}
+	Head.Next = ListSort(Head.Next)
+
+	if Head.Next != nil && Head.Data > Head.Next.Data {
+		Head = move(Head)
+	}
+	return Head
+}
+
+func move(l *NodeI) *NodeI {
+	p := l
+	n := l.Next
+	ret := n
+
+	for n != nil && l.Data > n.Data {
+		p = n
+		n = n.Next
+	}
+	p.Next = l
+	l.Next = n
+	return ret
 }

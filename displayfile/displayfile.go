@@ -14,8 +14,10 @@ func main(){
 	}else if os.Args[1] == "quest8.txt" {
 
 		data, err := ioutil.ReadFile("quest8.txt")
+ 
+
     if err != nil {
-		fmt.Printf("the mistake is: %v\n", err.Error())
+		fmt.Println(err.Error())
         return
     }
     fmt.Println(string(data))

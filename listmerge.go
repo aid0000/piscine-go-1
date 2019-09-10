@@ -1,15 +1,15 @@
 package piscine
 
 func ListMerge(l1 *List, l2 *List) {
-
-	novohead := l1.Head
-	novohead2 := l2.Head
-	for novohead != nil {			//percorre a list ate ao fim quando for nill
-
-		if novohead.Next == nil {	//se o proximo passo for nill	
-			novohead.Next = novohead2	//esse passo torna-se no primeiro elemento da lista 2
-			return
-		}
-		novohead = novohead.Next
+	if l2 == nil || l1 == nil {
+		return
 	}
+
+	if l1.Head == nil {
+		l1.Head = l2.Head
+		l1.Tail = l2.Head
+		return
+	}
+
+	l1.Tail.Next = l2.Head
 }
