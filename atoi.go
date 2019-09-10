@@ -46,7 +46,8 @@ func convert(sign int, absStr []rune) int {
 }
 func trimspace1(a []rune) []rune{
 	for i:=0;i<=lent(a)-1;i++{
-		if a[i]==' '|| a[i]=='.'{
+
+		if a[i]==' '|| a[i]=='.'|| a[i]>=56{
 			return []rune {'0'}
 		}
 	}
