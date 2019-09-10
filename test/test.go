@@ -1,9 +1,20 @@
 package main
 
-import piscine ".."
+import (
+	
+	"github.com/01-edu/z01"
+	piscine ".."
+)
 
 func main() {
-	piscine.PrintCombN(1)
-	piscine.PrintCombN(2)
-	piscine.PrintCombN(123)
+	piscine.PrintNbrBase(125, "0123456789")
+	z01.PrintRune('\n')
+	piscine.PrintNbrBase(-125, "01")
+	z01.PrintRune('\n')
+	piscine.PrintNbrBase(125, "0123456789ABCDEF")
+	z01.PrintRune('\n')
+	piscine.PrintNbrBase(-125, "choumi")
+	z01.PrintRune('\n')
+	piscine.PrintNbrBase(125, "aa")
+	z01.PrintRune('\n')
 }

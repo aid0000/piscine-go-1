@@ -1,67 +1,46 @@
 package piscine
 
-import (
+import(
+	
 	"fmt"
-
-	"github.com/01-edu/z01"
+	"strings"
 )
 
-func PrintNbrBase(nbr int, base string) {
-	var results [1000]rune
-	baseF := len(base)
-	result := []rune(base)
-	if baseF >= 2 && constrains(baseF, result) == true {
-		i := 0
-		pos := 0
-		if baseF == 10 {
-			fmt.Print(nbr)
-		} else if nbr > 0 {
-			for nbr > 0 {
-				convert2(pos, i, nbr, baseF, result, results)
-			}
-			//print the result
-			for j := i - 1; j >= 0; j-- {
-				z01.PrintRune(results[j])
-			}
-		} else if nbr < 0 {
-			nbr = -nbr
-			for nbr > 0 {
-				convert2(pos, i, nbr, baseF, result, results)
-			}
-			//print the result
+func Reverse(s string) string {
+    var reverse string
+    for i := len(s)-1; i >= 0; i-- {
+        reverse += string(s[i])
+    }
+    return reverse 
+}
+
+func PrintNbrBase(nbr int, str string)(){
+	indx := 0
+	for _,res:= range str {
+		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1 {
+			indx = 1
+			break
+		}
+	}
+	if indx == 1 || len(str) < 2{
+		fmt.Print("NV")	
+	}else if 2147483647  <nbr || -2147483648 > nbr{
+		fmt.Print(int64(nbr))
+	}else{
+		if nbr < 0 {
 			fmt.Print("-")
-			for j := i - 1; j >= 0; j-- {
-				z01.PrintRune(results[j])
+			nbr *= -1	
+		}
+		i:=0
+		nan:=""
+		for nbr >= len(str) {
+			if nbr >= len(str) {
+				nan +=string(str[nbr % len(str)])
+				nbr = nbr/len(str)
+				i++
 			}
 		}
-	} else {
-		results[0] = 'N'
-		results[1] = 'V'
-		for j := 0; j < 2; j++ {
-			z01.PrintRune(results[j])
-		}
+		nan +=string(str[nbr])
+		fmt.Print(Reverse(nan))
 	}
-}
-
-func constrains(baseF int, result []rune) bool {
-	if baseF == 0 {
-		return false
-	}
-	for a := 0; a < len(result); a++ {
-		for x := a + 1; x < len(result); x++ {
-			if baseF < 2 || result[a] == result[x] || result[a] == '+' || result[a] == '-' {
-				return false
-
-			}
-
-		}
-	}
-	return true
-}
-
-func convert2(pos, i, nbr, baseF int, result []rune, results [1000]rune) {
-	pos = nbr % baseF
-	results[i] = result[pos]
-	nbr = nbr / baseF
-	i++
 }
