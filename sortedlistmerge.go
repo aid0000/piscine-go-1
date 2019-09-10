@@ -12,7 +12,7 @@ func SortedListMerge(l1 *NodeI, l2 *NodeI) *NodeI {
 		return l1
 	}
 	if l1.Data <= l2.Data {
-		l1.Next = SortedListMerge(l1.Next, l2)		
+		l1.Next = SortedListMerge(l1.Next, l2)		//Escolha l1 maior igual a l2 e retorna l1 se sim cao contrario retorna o l2
 		return l1
 	} else {
 		l2.Next = SortedListMerge(l1, l2.Next)

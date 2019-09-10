@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(piscine.FindNextPrime(5))
-	fmt.Println(piscine.FindNextPrime(4))
+	s := []int{5,4,3,2,1,0}
+	piscine.SortIntegerTable(s)
+	fmt.Println(s)
 }

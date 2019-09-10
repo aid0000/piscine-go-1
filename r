@@ -63,26 +63,93 @@ func getDimension(s string) (int, int) {
 
 
 
-		n := &NodeI{}
-		n.Data = data_ref
-		n.Next = nil
-	
-		if l == nil || l.Data >= n.Data {
-			n.Next = l
-			return n
-		} else {
-			temp := l
-			for temp.Next != nil && temp.Next.Data < n.Data {
-				temp = temp.Next
-			}
-			n.Next = temp.Next
-			temp.Next = n
+
+
+
+
+ 
+package piscine
+
+func AtoiBase(s string, base string) int {
+	baseF := len(base)
+	result := []rune(base)
+	pos := 0
+
+	if constrains1(baseF, result) == true {
+		for i := 0; i < len(s); i++ {
+			pos *= len(base)
+			pos += Index1(s, base)
 		}
-		return l
+		return pos
+	} else {
+
+		return 0
+	}
+	return 0
+}
+
+func constrains1(baseF int, result []rune) bool {
+
+	if baseF == 0 {
+		return false
+	}
+	for a := 0; a < len(result); a++ {
+		for x := a + 1; x < len(result); x++ {
+			if baseF < 2 || result[a] == result[x] || result[x] == '+' || result[x] == '-' {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+func Index1(s string, toFind string) int {
+	arrayStr := []rune(s)
+	array := []rune(toFind)
+	for j := 0; j < len(s); j++ {
+		for x := 0; x < len(toFind); x++ {
+
+			if arrayStr[j] == array[x] { // ex: s[0:3] para dividir a string to 0 atil 3
+				return x
+			}
+		}
 	}
 
+	return -1
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 
 
 
@@ -248,60 +315,6 @@ func main() {
 
 
 
-type NodeI struct {
-	Data int
-	Next *NodeI
-}
-
-func ListSort(l *NodeI) *NodeI {
-
-	Head := l
-	if Head == nil {
-		return nil
-	}
-	Head.Next = ListSort(Head.Next)
-
-	if Head.Next != nil && Head.Data > Head.Next.Data {
-		Head = move(Head)
-	}
-	return Head
-}
-
-func move(l *NodeI) *NodeI {
-	p := l
-	n := l.Next
-	ret := n
-
-	for n != nil && l.Data > n.Data {
-		p = n
-		n = n.Next
-	}
-	p.Next = l
-	l.Next = n
-	return ret
-}
-
-
-
-
-
-if nb < 0 || nb > 12 {
-		return 0
-	} else if nb == 0 {
-		return 1
-	}
-	a := nb - 1
-	for i := a; i >= 1; i-- {
-		nb *= i
-	}
-	return nb
-}
-
-
-
-
-
-
 
 
 
@@ -339,6 +352,9 @@ func main() {
 	}
 }
 
+
+
+
 //quicksort
 func quicksort(table []string) {
 	beg := 0
@@ -375,6 +391,12 @@ func move(table []string, beg int, end int) int {
 
 	return i + 1
 }
+
+
+
+
+
+
 
 
 
