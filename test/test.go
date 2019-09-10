@@ -1,12 +1,9 @@
 package main
 
-import (
-	"fmt"
-	piscine ".."
-)
+import piscine ".."
 
 func main() {
-	s := []int{5,4,3,2,1,0}
-	piscine.SortIntegerTable(s)
-	fmt.Println(s)
+	piscine.PrintCombN(1)
+	piscine.PrintCombN(2)
+	piscine.PrintCombN(123)
 }
