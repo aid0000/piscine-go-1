@@ -27,7 +27,7 @@ func IsPrime2(value int) bool {
 	if value<=1{
         return false
     }
-      for i:=2; i<value; i++{
+      for i:=2; i<value+1; i++{
          if value % i == 0{
 			decision=false
         }
