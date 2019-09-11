@@ -1,40 +1,5 @@
-package piscine
-
-import (
-	"math"
-)
-
-func FindNextPrime(nb int) int {
-ns:=0
-	for i:=nb;i<2*nb; i++{
-
-		if IsPrime2(i) {
-			ns=i
-			break
-		}
-			}
-		
-	return ns
-}
 
 
-
-
-func IsPrime2(value int) bool {
-	if value < 2 {
-		return false
-	}
-	limit := int(math.Floor(math.Sqrt(float64(value))))
-	i := 2
-	for i <= limit {
-		if value%i == 0 {
-			return false
-		}
-		i++
-	}
-	return true
-}
-/*
  
 package piscine
 
@@ -65,4 +30,4 @@ func premier(nb int) bool{
 		}
 	}
 	return decision
-}*/
+}
