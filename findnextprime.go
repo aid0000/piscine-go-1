@@ -9,7 +9,7 @@ func FindNextPrime(nb int)int{
 	i:=nb+1
 	for i>nb{
 		nextprime++
-		if IsPrime(nextprime){
+		if IsPrime2(nextprime){
 			return nextprime
 		}
 		i++	
@@ -22,15 +22,20 @@ func FindNextPrime(nb int)int{
 
 
 func IsPrime2(value int) bool {
-	decision := true
-
-	if value <= 1 {
-		return false
-	}
-	for i := 2; i < value+1; i++ {
-		if value%i == 0 {
-			decision = false
-		}
-	}
-	return decision
+	decision:=true
+	
+	if value<=1{
+        return false
+    }
+      for i:=2; i<value; i++{
+         if value % i == 0{
+			decision=false
+        }
+    }
+    return decision
 }
+
+
+
+
+
