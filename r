@@ -1,73 +1,4 @@
-package main
 
-import (
-	"os"
-	"fmt"
-	"bufio"
-	"io"
-	"os/exec"
-)
-
-func main(){
-	info, err := os.Stdin.Stat()
-    	if err != nil {
-        	fmt.Println(err.Error())
-    	}
-	
-	if info.Mode()&os.ModeCharDevice != 0 || info.Size() <= 0 {
-		fmt.Println()
-		return
-	}
-	
-	reader := bufio.NewReader(os.Stdin)
-	var output []rune
-	
-	for {
-		input, _, err := reader.ReadRune()
-		if err != nil && err == io.EOF {
-			break
-		}
-		output = append(output, input)
-	}
-	
-	row, col:= getDimension(string(output))
-	fmt.Println(IsRaid1a(row, col))
-}
-
-func IsRaid1a (row, col int) string {
-	cmd, _ := exec.Command("raid1a", string(row), string(col)).Output()
-	return string(cmd)
-}
-
-
-func getDimension(s string) (int, int) {
-	col, row:= 0, 0
-	for _, res := range s {
-		if row == 0 && res != '\n' {
-			col++
-		}
-		if res == '\n' {
-			row++
-		}
-	}
-	return row, col
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 package piscine
 
 func AtoiBase(s string, base string) int {
@@ -135,6 +66,63 @@ func Index1(s string, toFind string) int {
 
 
 
+rrrrrrrrrrrrrrrrrrrrr
+
+package main
+
+import (
+	"os"
+	"fmt"
+	"bufio"
+	"io"
+	"os/exec"
+)
+
+func main(){
+	info, err := os.Stdin.Stat()
+    	if err != nil {
+        	fmt.Println(err.Error())
+    	}
+	
+	if info.Mode()&os.ModeCharDevice != 0 || info.Size() <= 0 {
+		fmt.Println()
+		return
+	}
+	
+	reader := bufio.NewReader(os.Stdin)
+	var output []rune
+	
+	for {
+		input, _, err := reader.ReadRune()
+		if err != nil && err == io.EOF {
+			break
+		}
+		output = append(output, input)
+		
+		fmt.Println(output)
+	}
+	row, col:= getsize(string(output))
+	fmt.Println(IsRaid1a(row, col))
+}
+
+func IsRaid1a (row, col int) string {
+	cmd, _ := exec.Command("raid1a", string(row), string(col)).Output()
+	return string(cmd)
+}
+
+
+func getsize(s string) (int, int) {
+	col, row:= 0, 0
+	for _, res := range s {
+		if row == 0 && res != '\n' {
+			col++
+		}
+		if res == '\n' {
+			row++
+		}
+	}
+	return row, col
+}
 
 
 
@@ -150,87 +138,6 @@ func Index1(s string, toFind string) int {
 
 
 		
-
-
-
-
-
-
-
-package piscine
-prntnbm
-import (
-	"fmt"
-)
-
-func mostrar(n int, table [9]int, tmax [9]int) {
-	i := 0
-	for i < n {
-		fmt.Print(table[i])
-		i++
-	}
-	if table[0] != tmax[0] {
-		fmt.Print(", ")
-	}
-}
-
-func printCombination() {
-	table := [9]int{0}
-	tmax := [9]int{9}
-	for table[0] <= tmax[0] {
-		mostrar(1, table, tmax)
-		table[0]++
-	}
-}
-
-func PrintCombN(n int) {
-	table := [9]int{0, 1, 2, 3, 4, 5, 6, 7, 8}
-	tmax := [9]int{}
-
-	if n == 1 {
-		printCombination()
-	} else {
-		i := n - 1
-		j := 9
-		for i >= 0 {
-			tmax[i] = j
-			i--
-			j--
-		}
-		i = n - 1
-		for table[0] < tmax[0] {
-			if table[i] != tmax[i] {
-				mostrar(n, table, tmax)
-				table[i]++
-			}
-			if table[i] == tmax[i] {
-				if table[i-1] != tmax[i-1] {
-					mostrar(n, table, tmax)
-					table[i-1]++
-					j = i
-					for j < n {
-						table[j] = table[j-1] + 1
-						j++
-					}
-					i = n - 1
-				}
-			}
-			for table[i] == tmax[i] && table[i-1] == tmax[i-1] && i > 1 {
-				i--
-			}
-		}
-		mostrar(n, table, tmax)
-	}
-	fmt.Println()
-
-
-
-
-
-
-
-
-
 
 
 
@@ -319,158 +226,82 @@ func main() {
 
 
 
-sort params
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package main
 
 import (
-	"fmt"
 	"os"
+	"fmt"
+	// "io"
+	"log"
+	"strings"
+	// "strconv"
+	// "os/exec"
+	// "io/ioutil"
+	"bufio"
+	// "bytes"
 )
+const FICHIER = "log.txt"
 
-func main() {
-	array := []string(os.Args[1:])
+func main(){
 
-	quicksort(array)
-	for i := 0; i < len(array); i++ {
+	if len(os.Args)==1{
+		file, err := os.Open(FICHIER)
+		file2, _ := os.Open(FICHIER)
+		file3, _ := os.Open(FICHIER)
 
-		fmt.Println(array[i])
-	}
-}
+	    if err != nil {
+	        log.Fatal(err)
+	    }
+	    defer file.Close()
 
+	    scanner := bufio.NewScanner(file)
+	    scanner2 := bufio.NewScanner(file2)
+	    scanner3 := bufio.NewScanner(file3)
+	    compteur:=0
 
+	    for scanner.Scan() {
+	    	compteur++
+	    }
 
+	    i:=0
+	    lastElmt := ""
 
-//quicksort
-func quicksort(table []string) {
-	beg := 0
-	end := len(table) - 1
+	    for scanner2.Scan() {
+	    	i++
+	    	if compteur == i{
+	    		lastElmt = fmt.Sprintf(scanner.Text())
+	    	}
+	    }
 
-	quickSrot(table, beg, end)
-}
-func quickSrot(table []string, beg int, end int) {
+	    splitLastElmt := strings.Index(lastElmt," ")
+	    lastElmt2 := []rune(lastElmt)
+	    lastElmt = string(lastElmt2[splitLastElmt+1:])
 
-	if beg < end {
-		lockPivo := move(table, beg, end)
-		quickSrot(table, beg, lockPivo-1)
-		quickSrot(table, lockPivo+1, end)
+	    resultat := []string{}
 
-	}
-}
+	    for scanner3.Scan() {
+	    	if strings.Index(scanner3.Text(),lastElmt) != -1{
+	    		resultat = append(resultat,scanner3.Text())
+	    	}
+	    }
 
-func move(table []string, beg int, end int) int {
-	pivo := table[end]
-	i := beg - 1
+	    fmt.Println(len(resultat))
 
-	for j := beg; j < end; j++ {
-		if table[j] <= pivo {
-			i++
-			aux := table[j]
-			table[j] = table[i]
-			table[i] = aux
+	    for i,v := range resultat{
+	    	if i<len(resultat)-1{
+	    		fmt.Print(v," || ")
+	    	}else{
+	    		fmt.Println(v)
+	    	}
+	    }
+	    if err := scanner.Err(); err != nil {
+	        log.Fatal(err)
+	    }
+		if err != nil{
+			return
 		}
-	}
 
-	aux := table[end]
-	table[end] = table[i+1]
-	table[i+1] = aux
-
-	return i + 1
-}
-
-
-
-
-
-
-
-
-
-
-
-
-	if value < 2 {
-		return false
-	}
-	limit := int(math.Floor(math.Sqrt(float64(value))))
-	i := 2
-	for i <= limit {
-		if value%i == 0 {
-			return false
-		}
-		i++
-	}
-	return true
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-package piscine
-
-import (
-	"github.com/01-edu/z01"
-)
-
-/*
-func BTreeApplyByLevel(root *TreeNode, fn interface{}) {
-	if root == nil {
-		return
-	}
-	if root != nil {
-		level := BTreeLevelCount(root)
-		arg := []interface{}{root.Data}
-		z01.Call(fn, arg)
-		BTreeApplyByLevel(root.Left, fn)
-		BTreeApplyByLevel(root.Right, fn)
-	}
-}
-*/
-func applyGivenOrder(root *TreeNode, level int, fn interface{}) {
-	if root == nil {
-		return
-	}
-
-	if level == 0 {
-		arg := []interface{}{root.Data}
-		z01.Call(fn, arg)
-	} else if level > 0 {
-		applyGivenOrder(root.Left, level-1, fn)
-		applyGivenOrder(root.Right, level-1, fn)
-	}
-}
-
-//Apply the function f level by level
-func BTreeApplyByLevel(root *TreeNode, fn interface{}) {
-	h := BTreeLevelCount(root)
-	for i := 0; i < h; i++ {
-		applyGivenOrder(root, i, fn)
+	}else{
+		fmt.Println("Not a Raid function")
 	}
 }
