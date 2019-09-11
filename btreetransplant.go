@@ -1,19 +1,25 @@
 package piscine 
 func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 
+
+
 	
+	replace:=node
+	
+	if root==nil{
+return nil
+	}
+
 
 	if node.Parent == nil {
 		root = rplc
+	
 	} else if node == node.Parent.Left {
-		node.Parent.Left = rplc
+		replace.Parent.Left = rplc
 	} else {
-		node.Parent.Right = rplc
+		replace.Parent.Right = rplc
 	}
-	if rplc!=nil{
-		rplc.Parent = node.Parent
-	}
+	replace.Parent=node.Parent 
+	
 	return root
-}
-
-
+	}
