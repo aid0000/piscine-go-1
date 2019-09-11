@@ -5,5 +5,5 @@ func BTreeMin(root *TreeNode) *TreeNode {
 		return root
 	}
 
-	return BTreeMax(root.Left)
+	return BTreeMin(root.Left)
 }
