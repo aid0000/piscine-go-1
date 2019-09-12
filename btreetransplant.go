@@ -8,10 +8,10 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 
     if node.Parent == nil {
         root = rplc
-    } else if node == node.Parent.Left {
-        a.Parent.Left = rplc
-    } else {
-        a.Parent.Right = rplc
+		} else if node == node.Parent.Right {
+			a.Parent.Right = rplc
+		} else {
+			a.Parent.Left = rplc
     }
     a.Parent = node.Parent
     
