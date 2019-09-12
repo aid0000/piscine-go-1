@@ -11,7 +11,7 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 	if node.Parent == nil {
 		root = rplc
 	} else if node == node.Parent.Left {
-		replace.Parent.Left = rplc
+		rplc=replace.Parent.Left 
 	} else {
 		replace.Parent.Right = rplc
 	}
