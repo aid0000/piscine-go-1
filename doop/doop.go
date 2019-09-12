@@ -28,6 +28,7 @@ func main(){
 			if err == nil && err2 == nil{
 				switch args[1] {
 				case "+":
+					
 					fmt.Println(nb1 + nb2)
 				case "-":
 					fmt.Println(nb1 - nb2)
@@ -45,7 +46,6 @@ func main(){
 					}
 				case "*":
 					fmt.Println(nb1 * nb2)
-
 				}
 			}else{
 				fmt.Println("1")
@@ -56,3 +56,17 @@ func main(){
 	}
 	
 }
+
+func IsNumeric2(nb int) bool {
+	g:=string(nb)
+	h := []rune(g)
+	
+	for i := 0; i <= len(h)-1; i++ {
+		if (h[i] >= 0) && (h[i] <= 47) || (h[i] >= 58) && (h[i] <= 127){
+			return false
+		}
+			
+	}
+	return true
+	}
+	
