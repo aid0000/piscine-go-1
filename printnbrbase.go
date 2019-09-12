@@ -8,7 +8,7 @@ import(
 
 func Reverse(s string) string {
     var reverse string
-    for i := len(s)-1; i >= 0; i-- {
+    for i := lent2(s)-1; i >= 0; i-- {
         reverse += string(s[i])
     }
     return reverse 
@@ -22,7 +22,7 @@ func PrintNbrBase(nbr int, str string)(){
 			break
 		}
 	}
-	if indx == 1 || len(str) < 2{
+	if indx == 1 || lent2(str) < 2{
 		fmt.Print("NV")	
 	}else if 2147483647  <nbr || -2147483648 > nbr{
 		fmt.Print(int64(nbr))
@@ -33,10 +33,10 @@ func PrintNbrBase(nbr int, str string)(){
 		}
 		i:=0
 		nan:=""
-		for nbr >= len(str) {
-			if nbr >= len(str) {
-				nan +=string(str[nbr % len(str)])
-				nbr = nbr/len(str)
+		for nbr >= lent2(str) {
+			if nbr >= lent2(str) {
+				nan +=string(str[nbr % lent2(str)])
+				nbr = nbr/lent2(str)
 				i++
 			}
 		}
