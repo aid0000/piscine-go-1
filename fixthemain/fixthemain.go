@@ -34,11 +34,9 @@ func main() {
 	OpenDoor(&door)
 	if IsDoorClose(door) {
 		OpenDoor(&door)
-	}
-	if IsDoorOpen(door) {
+	}else if IsDoorOpen(door) {
 		CloseDoor(&door)
-	}
-	if door.state == OPEN {
+	} else if door.state == OPEN {
 		CloseDoor(&door)
 	}
 }
