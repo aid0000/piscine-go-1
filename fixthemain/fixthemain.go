@@ -9,22 +9,22 @@ const OPEN = false
 const CLOSE =true
 
 func OpenDoor(ptrDoor *Door){
-	fmt.Println("Door Opening...")
+	fmt.Print("Door Opening...\n")
 	ptrDoor.state = OPEN
 }
 
 func CloseDoor(ptrDoor *Door){
-	fmt.Println("Door closing...")
+	fmt.Print("Door closing...\n")
 	ptrDoor.state = CLOSE
 }
 
 func IsDoorOpen(ptrDoor Door) bool {
-	fmt.Println("is the Door opened ?")
+	fmt.Print("is the Door opened ?\n")
 	return ptrDoor.state
 }
 
 func IsDoorClose(ptrDoor Door) bool {
-	fmt.Println("is the Door closed ?")
+	fmt.Print("is the Door closed ?\n")
 	return ptrDoor.state
 }
 
