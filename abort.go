@@ -1,8 +1,10 @@
 package piscine
-func Abort(a, b, c, d, e int) int {
-var result int
-n:=5
 
-result= a+b+c+d+e
-return result/n
+import (
+	
+)
+func Abort(a, b, c, d, e int) int {
+	arg := []int{a, b, c, d, e}
+	SortIntegerTable(arg)			//organiza os args ordem+
+	return arg[2]                    //porque e o arg do meo
 }
