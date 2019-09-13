@@ -16,6 +16,8 @@ func main() {
 			
 			if args[i] == str[k] {
 				fmt.Println("Alert!!!")
+				
+			}else{
 				break
 			}
 			
