@@ -1,10 +1,28 @@
 package main
 
 import (
-
+	piscine ".."
 	"fmt"
 	"os"
 )
+
+func main() {
+	args := []string(os.Args)
+	str := []string{"01", "galaxy", "galaxy 01"}
+	
+
+	for k := 0; k < piscine.Lent3(str); k++ {
+		for i := 1; i < piscine.Lent3(args); i++ {
+			
+			if args[i] == str[k] {
+				fmt.Println("Alert!!!")
+				break
+			}
+			
+		}
+	}
+}
+/*
 func main() {
 	var arrayRune []rune
 	var result string
@@ -25,4 +43,4 @@ func main() {
 			fmt.Println("Alert!!!")
 		}
 	}
-}
+}*/
