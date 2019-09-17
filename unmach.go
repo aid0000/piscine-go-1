@@ -17,5 +17,5 @@ func Unmatch(arr []int) int {
 			return arr[k]
 		}
 	}
-return 0
+return -1
 }
