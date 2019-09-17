@@ -1,24 +1,18 @@
 package piscine
 
-
-
-
-
-
 func SortWordArr(array []string) {
-	
-	var str string
-	for i:=0;i<Lent3(array);i++{
-		str= str+ array[i]
 
+	var str string
+	for i := 0; i < Lent3(array); i++ {
+		str = str + array[i]
 
 	}
-	arr:=[]rune(str)
-	quickSrot2(arr,0,len(arr)-1)
-	for p:=0 ;p<len(arr);p++{
+	arr := []rune(str)
+	quickSrot2(arr, 0, len(arr)-1)
+	for p := 0; p < len(arr); p++ {
 
-		 array[p]=string(arr[p])
-		
+		array[p] = string(arr[p])
+
 	}
 }
 
@@ -57,4 +51,3 @@ func mudaVariavel2(table []rune, beg int, end int) int {
 
 	return i + 1
 }
-
