@@ -1,65 +1,34 @@
 package piscine
 
-import (
-	
-)
 func ConvertBase(nbr, baseFrom, baseTo string) string {
-
-	
-
-
-
-    return "num; "
-
-
+	return NbrBase(AtoiBase(nbr, baseFrom), baseTo)
 }
-/*
-func toDeci(str string, base int ) {
-{ 
-    power := 1 
-    num := 0  
-      
-  
-    // Decimal equivalent is str[len-1]*1 + 
-    // str[len-1]*base + str[len-1]*(base^2) + ... 
-    for i := len - 1; i >= 0; i--{ 
-    { 
-        // A digit in input number must be 
-        // less than number's base 
-        if val(str[i]) >= base{ 
-        
-           printf("Invalid Number") 
-           return -1 
-		} 
+
+func NbrBase(nbr int, str string) string {
+	indx := 0
+	for _, res := range str {
+		if string(res) == "-" || string(res) == "+" {
+			indx = 1
+			break
 		}
-  
-        num += val(str[i]) * power; 
-        power = power * base; 
-    } 
-  
-    return num; 
-} 
-
 	}
-
-
-
-
-func Reverses(s string) string {
-    var reverse string
-    for i := lent2(s)-1; i >= 0; i-- {
-        reverse += string(s[i])
-    }
-    return reverse 
-}
-/*
-func val(c byte){
-
-	
-		if c >= '0' && c <= '9'{
-		return c - '0' 
+	if indx == 1 || len(str) < 2 {
+		return "0"
+	} else if 2147483647 < nbr || -2147483648 > nbr {
+		return string(nbr)
+	} else {
 		
-		}else{
-        return c - 'A' + 10 "
-		} 
-*/
+		
+		i := 0
+		smt := ""
+		for nbr >= lent2(str) {
+			if nbr >= lent2(str) {
+				smt += string(str[nbr%lent2(str)])
+				nbr = nbr / lent2(str)
+				i++
+			}
+		}
+		smt += string(str[nbr])
+		return Reverse(smt)
+	}
+}

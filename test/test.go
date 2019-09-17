@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 1, 2, 3, 4}
-	unmatch := piscine.Unmatch(arr)
-	fmt.Println(unmatch)
+	result := piscine.ConvertBase("101011", "01", "0123456789")
+	fmt.Println(result)
 }

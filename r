@@ -31,6 +31,43 @@ func ispair(elt,index int, arr[]int) bool{
 
 
 
+package piscine
+
+func ConvertBase(nbr, baseFrom, baseTo string) string {
+	return NbrBase(AtoiBase(nbr, baseFrom), baseTo)
+}
+
+func NbrBase(nbr int, str string) string {
+	indx := 0
+	for _, res := range str {
+		if string(res) == "-" || string(res) == "+" {
+			indx = 1
+			break
+		}
+	}
+	if indx == 1 || len(str) < 2 {
+		return "0"
+	} else if 2147483647 < nbr || -2147483648 > nbr {
+		return string(nbr)
+	} else {
+		neg := ""
+		if nbr < 0 {
+			neg = "-"
+			nbr *= -1
+		}
+		i := 0
+		smt := ""
+		for nbr >= lent2(str) {
+			if nbr >= lent2(str) {
+				smt += string(str[nbr%lent2(str)])
+				nbr = nbr / lent2(str)
+				i++
+			}
+		}
+		smt += string(str[nbr])
+		return neg + Reverse(smt)
+	}
+}
 
 
 
@@ -116,52 +153,48 @@ func Index1(s string, toFind string) int {
 
 
 
+----------------------------------------------------------------------------------------
 
-package piscine
+import (
+	"math"
+	"strings"
+)
 
-import "fmt"
-
-const N = 8
-
-var position = [N]int{}
-
-func talivre(queen_number, row_position int) bool {
-	for i := 0; i < queen_number; i++ {
-		other_row_pos := position[i]
-
-		if other_row_pos == row_position || other_row_pos == row_position-(queen_number-i) || other_row_pos == row_position+(queen_number-i) {
-			return false
-		}
-	}
-	return true
+func ConvertBase(nbr, baseFrom, baseTo string) string {
+	return  NbrBase(AtoiBase(nbr, baseFrom), baseTo)
 }
 
-func resolverpuzzle(k int) {
-	if k == N {
-		for i := 0; i < N; i++ {
-			fmt.Print(position[i] + 1)
+func NbrBase(nbr int, str string) string {
+	indx := 0
+	for _,res:= range str {
+		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1 {
+			indx = 1
+			break
 		}
-		fmt.Print("\n")
-	} else {
-		for i := 0; i < N; i++ {
-			if talivre(k, i) {
-				position[k] = i
-				resolverpuzzle(k + 1)
+	}
+	if indx == 1 || len(str) < 2{
+		return "0"
+	}else if 2147483647  <nbr || -2147483648 > nbr{
+		return string(nbr)
+	}else{
+		neg := ""
+		if nbr < 0 {
+			neg = "-"
+			nbr *= -1	
+		}
+		i:=0
+		nan:= ""
+		for nbr >= len(str) {
+			if nbr >= len(str) {
+				nan +=string(str[nbr % len(str)])
+				nbr = nbr/len(str)
+				i++
 			}
 		}
+		nan +=string(str[nbr])
+		return neg+Reverse(nan)
 	}
 }
-
-func EightQueens() {
-	resolverpuzzle(0)
-}
-
-
-
-
-
-
-
 
 
 
