@@ -8,7 +8,7 @@ func AtoiBase(s string, base string) int {
 
 	indx:=0
 	for _,res:= range base {
-		if string(res) == "-" || string(res) == "+" {
+		if string(res) == "-" || string(res) == "+" || strings.Count(base, string(res)) > 1 {
 			indx = 1
 			break
 		}
