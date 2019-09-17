@@ -6,6 +6,9 @@ import (
 )
 
 func main() {
-	result := piscine.ConvertBase("101011", "01", "0123456789")
+
+	result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
+	piscine.SortWordArr(result)
+
 	fmt.Println(result)
 }
