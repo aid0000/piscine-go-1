@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	piscine".."
+	"strconv"
 )
 
 func isSigne(str string, arr[]string) bool{
@@ -22,15 +22,13 @@ func main(){
 
 	}else{
 		if isSigne(args[1], signe){
-			nb1 := piscine.Atoi(args[0])
-			nb2 := piscine.Atoi(args[2])
-
-if nb1==0 || nb2 == 0{
-	fmt.Println(0) 
-	return
-}
-
-			if nb1 != 0 && nb2 != 0{
+			nb1, err := strconv.Atoi(args[0])
+			nb2, err2 := strconv.Atoi(args[2])
+			if nb1==0 {
+				fmt.Println(0) 
+				return
+			}
+			if err == nil && err2 == nil{
 				switch args[1] {
 				case "+":
 					fmt.Println(nb1 + nb2)
