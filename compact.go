@@ -1,16 +1,18 @@
 package piscine
 
-import (
-	
-)
+import ()
 
 func Compact(ptr *[]string) int {
 
-	//add:=0
-	//for _,i:=range add {
-		//if (*ptr)[i]!=" "{
-		//	add++
-		//}
-	
-	return 0
+	add := 0
+	var arr []string
+	for _, v := range *ptr {
+
+		if v != "" {
+			arr=append(arr,v)
+			add++	
+		}
+	}
+	*ptr=arr
+	return add
 }
