@@ -1,19 +1,9 @@
 package piscine
 
 func SortWordArr(array []string) {
-/*
-	var str string
-	for i := 0; i < Lent3(array); i++ {
-		str = str + array[i]
 
-	}
-	arr := []rune(str)*/
 	quickSrot2(array, 0, len(array)-1)
-//	for p := 0; p < len(arr); p++ {
 
-	//	array[p] = string(arr[p])
-
-	//}
 }
 
 
@@ -46,3 +36,18 @@ func mudaVariavel2(table []string, beg int, end int) int {
 
 	return i + 1
 }
+
+
+
+/*
+	var str string
+	for i := 0; i < Lent3(array); i++ {
+		str = str + array[i]
+
+	}
+	arr := []rune(str)*/
+	//	for p := 0; p < len(arr); p++ {
+
+	//	array[p] = string(arr[p])
+
+	//}

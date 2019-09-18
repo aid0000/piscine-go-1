@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"sort"
+
 )
 
 func counter(output []rune) (x, y int) {
@@ -73,5 +74,6 @@ func main() {
 	}
 	determineInput(output)
 }
+
 
 
