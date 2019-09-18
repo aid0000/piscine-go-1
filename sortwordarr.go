@@ -1,28 +1,23 @@
 package piscine
 
 func SortWordArr(array []string) {
-
+/*
 	var str string
 	for i := 0; i < Lent3(array); i++ {
 		str = str + array[i]
 
 	}
-	arr := []rune(str)
-	quickSrot2(arr, 0, len(arr)-1)
-	for p := 0; p < len(arr); p++ {
+	arr := []rune(str)*/
+	quickSrot2(array, 0, len(array)-1)
+//	for p := 0; p < len(arr); p++ {
 
-		array[p] = string(arr[p])
+	//	array[p] = string(arr[p])
 
-	}
+	//}
 }
 
-func SortIntegerTable2(table []rune) {
-	beg := 0
-	end := len(table) - 1
 
-	quickSrot2(table, beg, end)
-}
-func quickSrot2(table []rune, beg int, end int) {
+func quickSrot2(table []string, beg int, end int) {
 
 	if beg < end {
 		lockPivo := mudaVariavel2(table, beg, end)
@@ -32,7 +27,7 @@ func quickSrot2(table []rune, beg int, end int) {
 	}
 }
 
-func mudaVariavel2(table []rune, beg int, end int) int {
+func mudaVariavel2(table []string, beg int, end int) int {
 	pivo := table[end]
 	i := beg - 1
 
