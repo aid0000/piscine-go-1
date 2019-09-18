@@ -6,7 +6,7 @@ import (
 
 
 func AdvancedSortWordArr(array []string, f func(a, b string) int) {
-	
+/*	
 	for i:=1; i<Lent3(array) ;i++{
 		if f(array[i], array[i-1]) > 1 {
 			array[i]=array[i-1]                  //anda uma posicao
@@ -14,7 +14,7 @@ func AdvancedSortWordArr(array []string, f func(a, b string) int) {
 			i=0
 		}
 		
-	}
+	}*/
 	quickSrot2(array, 0, len(array)-1)
 }
 
