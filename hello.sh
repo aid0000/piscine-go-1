@@ -1,2 +1,3 @@
 #!/bin/sh
- echo 'Hello kigiri!'
+env
+echo 'Hello wesh!'
