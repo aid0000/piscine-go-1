@@ -1,3 +1,2 @@
 #!/bin/sh
-env
-echo 'Hello wesh!'
+echo Hello $(echo $REPOSITORY | cut -d'/' -f4)
